@@ -4,7 +4,28 @@
     box-sizing: border-box;
     scroll-behavior: smooth;
 }
+body{
+    font-family: 'cinzel', serif;
+}
+:root{
+    --clr-white: #fff;
+    --clr-gold: #d5be9b;
+}
 /* ========== HEADER ========== */
-.header-main .container .logo{
-    padding: 0 20px;
+.header-section{
+    width: 100%;
+    height: 100vh;
+    background: url(./pics/firstpagebg.webp);
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.header-heading{
+    font-size: 100px;
+    text-transform: uppercase;
+    color: var(--clr-white);
+}
+.header-heading span{
+    color: var(--clr-gold);
 }
