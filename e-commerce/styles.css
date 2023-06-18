@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Lobster+Two:wght@400;700&display=swap');
+
 *{
     margin: 0;
     padding: 0;
@@ -9,23 +11,72 @@ body{
 }
 :root{
     --clr-white: #fff;
-    --clr-gold: #d5be9b;
+    --clr-black: #000;
+    --clr-gold: #E69F00;
+    --clr-red: #FF0033;
 }
+
+
 /* ========== HEADER ========== */
-.header-section{
-    width: 100%;
-    height: 100vh;
-    background: url(./pics/firstpagebg.webp);
-    background-size: cover;
+header{
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: space-between;
+    padding: 20px 80px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
-.header-heading{
-    font-size: 100px;
-    text-transform: uppercase;
-    color: var(--clr-white);
+header .logo a{
+    text-decoration: none;
+    color: var(--clr-black);
+    font-size: 25px;
+    font-family: 'Lobster Two', cursive;
+    font-weight: 700;
+    font-style: italic;
+    text-transform: capitalize;
 }
-.header-heading span{
-    color: var(--clr-gold);
+header .navbar{
+    display: flex;
+    list-style: none;
+}
+header .navbar li{
+    display: inline-block;
+    position: relative;
+}
+header .navbar li a{
+    display: block;
+    text-decoration: none;
+    color: var(--clr-black);
+    margin: 0 0 0 20px;
+    padding: 0 10px;
+    position: relative;
+}
+header .navbar li a::before{
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, var(--clr-gold), transparent);
+    opacity: 0;
+    pointer-events: none;
+    z-index: -1;
+    transition: opacity 0.3s ease-in-out;
+}
+header .navbar li a:hover::before{
+    opacity: 1;
+}
+header .navbar .submenu{
+    display: none;
+    top: 100%;
+    left: 0;
+    position: absolute;
+    background-color: var(--clr-white);
+}
+header .navbar .submenu li a:hover::before{
+    opacity: 0;
+}
+header .navbar .dropdown:hover .submenu{
+    display: block;
 }
