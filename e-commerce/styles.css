@@ -84,22 +84,43 @@ header .header-icon a{
 }
 
 /* ========== HOME ========== */
-.home{
+.home {
     min-height: 100vh;
     width: 100%;
-    background: url(./pics/homebg.jpg);
     background-size: cover;
+    position: relative;
+    transition: background-image 0.5s ease;
 }
-.home .home-text h1{
+.home.fade-in {
+    opacity: 1;
+}
+.home.fade-in::after {
+    opacity: 0;
+}
+.home::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    transition: opacity 0.5s ease;
+    z-index: -1;
+}
+
+.home .home-text h1 {
     font-size: var(--font-big);
     padding-top: 90px;
     line-height: 1.2;
     letter-spacing: .5rem;
     margin-bottom: 1.4rem;
 }
+
 .home .home-text .btn a {
     color: var(--clr-bg);
 }
+
 .home .home-text .btn {
     padding: 15px 10px;
     margin: 20px;
@@ -112,19 +133,24 @@ header .header-icon a{
     overflow: hidden;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
+
 .home .home-text .btn:hover {
     background-color: transparent;
 }
-.home .home-text .btn:hover a{
+
+.home .home-text .btn:hover a {
     color: var(--clr-main);
     font-size: 1.1rem;
 }
-.home .home-text .btn span{
+
+.home .home-text .btn span {
     display: none;
-} 
-.home .home-text .btn:hover span{
+}
+
+.home .home-text .btn:hover span {
     display: inline;
 }
+
 .home .home-text .btn::before {
     content: "";
     position: absolute;
@@ -137,6 +163,7 @@ header .header-icon a{
     transition: transform 0.3s ease;
     z-index: -1;
 }
+
 .home .home-text .btn:hover::before {
     transform: translateX(-100%);
 }
