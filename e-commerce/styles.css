@@ -17,15 +17,67 @@ body{
     --clr-bg: #fff;
     --clt-txt: #111111;
     --clr-main: #c8815f;
+    --clr-grey: #999999;
     --font-big: 4.5rem;
-    --font-h2: 3.3rem;
     --font-h3: 2rem;
     --font-body: 1rem;
 }
 section{
     padding: 100px 14%;
 }
-
+section .section-title h2{
+    text-align: center;
+    font-size: var(--font-h3);
+    padding-bottom: 20px;
+}
+section .section-title p{
+    text-align: center;
+    text-transform: lowercase;
+    color: var(--clr-grey);
+    padding-bottom: 40px;
+}
+.btn a {
+    color: var(--clr-bg);
+}
+.btn {
+    padding: 15px 10px;
+    margin: 20px;
+    border: 3px solid var(--clr-main);
+    background-color: var(--clr-main);
+    border-radius: 5px;
+    font-weight: 700;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.btn:hover {
+    background-color: transparent;
+}
+.btn:hover a {
+    color: var(--clr-main);
+}
+.btn span {
+    display: none;
+}
+.btn:hover span {
+    display: inline;
+}
+.btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: var(--clr-main);
+    transform: translateX(0);
+    transition: transform 0.3s ease;
+    z-index: -1;
+}
+.btn:hover::before {
+    transform: translateX(-100%);
+}
 
 /* ========== HEADER ========== */
 header{
@@ -83,6 +135,8 @@ header .header-icon a{
     font-size: 1.2rem;
 }
 
+
+
 /* ========== HOME ========== */
 .home {
     min-height: 100vh;
@@ -117,53 +171,59 @@ header .header-icon a{
     margin-bottom: 1.4rem;
 }
 
-.home .home-text .btn a {
-    color: var(--clr-bg);
-}
 
-.home .home-text .btn {
-    padding: 15px 10px;
-    margin: 20px;
-    border: 3px solid var(--clr-main);
-    background-color: var(--clr-main);
-    border-radius: 5px;
-    font-weight: 700;
-    cursor: pointer;
+
+/* ========== FEATURED ========== */
+.featured {
     position: relative;
     overflow: hidden;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.home .home-text .btn:hover {
-    background-color: transparent;
-}
-
-.home .home-text .btn:hover a {
-    color: var(--clr-main);
-    font-size: 1.1rem;
-}
-
-.home .home-text .btn span {
-    display: none;
-}
-
-.home .home-text .btn:hover span {
-    display: inline;
-}
-
-.home .home-text .btn::before {
-    content: "";
+} 
+.featured i {
+    top: 50%;
+    text-align: center;
+    cursor: pointer;
     position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background-color: var(--clr-main);
-    transform: translateX(0);
-    transition: transform 0.3s ease;
-    z-index: -1;
+    color: var(--clr-bg);
+    background: var(--clr-main);
+    margin: 0 -25px;
+    width: 46px;
+    height: 46px;
+    line-height: 46px;
+    border-radius: 50%;
+    transform: translateY(-50%);
+}  
+.featured i:first-child {
+    left: -23px;
+}  
+.featured i:last-child {
+    right: -23px;
+}  
+.featured .carousel-container {
+    display: flex;
+    align-items: center;
+}  
+.featured-content {
+    display: flex;
+    overflow: hidden;
+}  
+.carousel-item {
+    flex: 0 0 calc(100% / 4);
+    padding: 0 30px;
+}  
+.carousel-item img {
+    height: 340px;
+    object-fit: cover;
+} 
+.carousel-item .content-text {
+    text-align: center;
+    line-height: 2;
+}  
+.carousel-item .content-text h5 {
+    font-weight: 600;
+}  
+.carousel-item .content-text p {
+    color: var(--clr-grey);
+    font-weight: 700;
+    letter-spacing: 0.1rem;
 }
-
-.home .home-text .btn:hover::before {
-    transform: translateX(-100%);
-}
+  
