@@ -83,3 +83,13 @@ for (var i = 0; i < saleTags.length; i++) {
     document.getElementById('sales').scrollIntoView({ behavior: 'smooth' });
   });
 }
+
+
+
+
+// ==================== COUNTING THE NEW ITEMS ====================
+const parentDiv = document.getElementById('parentDiv');
+const sectionItems = parentDiv.getElementsByClassName('sectionItem');
+const count = sectionItems.length;
+const countElement = document.getElementById('count');
+countElement.textContent = "Total items: " + count + " items";

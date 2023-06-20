@@ -129,7 +129,15 @@ section .section-title p{
 
 
 
+/* =================================================================================================================*/
+/************************************************** Index page/
+/* =================================================================================================================*/
+
+
 /* ========== HEADER ========== */
+.nav{
+    background-color: var(--clr-bg);
+}
 /* Add a new CSS class for the white background */
 header.navbar-white {
     background-color: var(--clr-bg);
@@ -521,4 +529,22 @@ footer .section-title h2 {
 }
 .footer-content .footer-item a:hover{
     color: var(--clr-main);
+}
+
+
+/* =================================================================================================================*/
+/************************************************** NEW PAGE */
+/* =================================================================================================================*/
+.new-clothes{
+    padding: 100px 5%;
+}
+.new-title{
+    background-color: var(--clr-main);
+    padding: 40px 150px;
+    color: var(--clr-bg);
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    text-align: center;
+    font-size: 4rem;
+    text-transform: uppercase;
 }
