@@ -130,6 +130,15 @@ section .section-title p{
 
 
 /* ========== HEADER ========== */
+/* Add a new CSS class for the white background */
+header.navbar-white {
+    background-color: var(--clr-bg);
+}
+/* Remove the background color transition for smoother effect */
+header {
+/* Existing styles */
+    transition: padding .34s ease-in-out;
+}  
 header{
     width: 100%;
     top: 0;

@@ -23,6 +23,27 @@ setInterval(changeBackgroundImage, 5000);
 
 
 
+// ==================== GIVE NAVBAR BACKGROUND IN SECOND SECTION ====================
+// Get the navbar element
+const navbar = document.querySelector('header');
+
+// Get the position of the second section
+const secondSection = document.querySelector('#featured');
+const secondSectionTop = secondSection.offsetTop;
+
+// Function to check the scroll position and update the navbar class
+function checkScrollPosition() {
+  if (window.pageYOffset >= secondSectionTop) {
+    navbar.classList.add('navbar-white');
+  } else {
+    navbar.classList.remove('navbar-white');
+  }
+}
+
+// Add scroll event listener to check the scroll position
+window.addEventListener('scroll', checkScrollPosition);
+
+
 
 // ==================== FEATURED CONTENT CAROUSEL ====================
 
