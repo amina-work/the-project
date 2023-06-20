@@ -18,6 +18,8 @@ body{
     --clt-txt: #111111;
     --clr-main: #c8815f;
     --clr-grey: #999999;
+    --clr-darkgrey: #D7DCE2;
+    --clr-lightergrey: #F7F7F7;
     --font-big: 4.5rem;
     --font-h3: 2rem;
     --font-body: 1rem;
@@ -78,6 +80,54 @@ section .section-title p{
 .btn:hover::before {
     transform: translateX(-100%);
 }
+
+.see-more{
+    text-align: center;
+    margin-top: 60px;
+}
+.page-btn {
+    border: 1px solid var(--clr-main);
+    color: var(--clr-main);
+    height: 50px;
+    line-height: 50px;
+    border-radius: 3px;
+    padding: 0px 40px 0px 15px;
+    position: relative;
+    overflow: hidden;
+    transition: .4s all ease;
+}
+.page-btn:before {
+    content: ">";
+    position: absolute;
+    right: 10px;
+}
+.page-btn span {
+    position: relative;
+    top: 0px;
+    font-weight: 600;
+    transition: .4s all ease;
+}
+.page-btn span:after {
+    content: attr(title);
+    display: block;
+    opacity: 0;
+    transition: .4s all ease;
+    color: var(--clr-grey);
+}
+.page-btn:hover {
+    border-color: var(--clr-grey);
+}
+.page-btn:hover:before {
+    color: var(--clr-grey);
+}
+.page-btn:hover span {
+    top: -50px;
+}
+.page-btn:hover span:after {
+    opacity: 1;
+}
+
+
 
 /* ========== HEADER ========== */
 header{
@@ -174,12 +224,12 @@ header .header-icon a{
 
 
 /* ========== FEATURED ========== */
-.featured {
+.featured{
     position: relative;
     overflow: hidden;
-} 
-.featured i {
-    top: 50%;
+}
+.featured i{
+    top: 45%;
     text-align: center;
     cursor: pointer;
     position: absolute;
@@ -191,39 +241,96 @@ header .header-icon a{
     line-height: 46px;
     border-radius: 50%;
     transform: translateY(-50%);
-}  
+}
+.featured i:hover {
+    animation: bounce 0.5s ease infinite;
+} 
+@keyframes bounce {
+    0% {
+      transform: translateY(-50%);
+    }
+    50% {
+      transform: translateY(-55%);
+    }
+    100% {
+      transform: translateY(-50%);
+    }
+}
 .featured i:first-child {
     left: -23px;
 }  
 .featured i:last-child {
     right: -23px;
-}  
-.featured .carousel-container {
+}
+.wrapper{
+    max-width: 1200px;
+    position: relative;
+}
+.featured .carousel {
     display: flex;
-    align-items: center;
-}  
-.featured-content {
-    display: flex;
+    cursor: pointer;
+    transition: transform 0.5s ease;
+    scroll-behavior: smooth;
     overflow: hidden;
-}  
-.carousel-item {
-    flex: 0 0 calc(100% / 4);
-    padding: 0 30px;
-}  
-.carousel-item img {
+    white-space: nowrap;
+}
+.featured .carousel.dragging{
+    cursor: grab;
+    scroll-behavior: auto;
+}
+.row{
+    user-select: none;
+    margin-left: 14px;
+    position: relative;
+    display: inline-block;
+}
+.sale-tag {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    padding: 4px;
+    font-size: 12px;
+    color: var(--clr-bg);
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 4px;
+}
+.row:first-child{
+    margin-left: 0;
+}
+.row img {
     height: 340px;
     object-fit: cover;
 } 
-.carousel-item .content-text {
+.content-text {
     text-align: center;
     line-height: 2;
 }  
-.carousel-item .content-text h5 {
+.content-text h5 {
     font-weight: 600;
 }  
-.carousel-item .content-text p {
+.content-text p {
     color: var(--clr-grey);
     font-weight: 700;
     letter-spacing: 0.1rem;
 }
-  
+
+
+
+/* ========== FEATURED BAGS ========== */
+.featured-bags{
+    background-color: var(--clr-lightergrey);
+}
+.featured-bags .bags-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+}
+.grid-item{
+    position: relative;
+    display: inline-block;
+}
+.grid-item img{
+    height: 300px;
+    width: 300px;
+    border: 1px solid var(--clr-main);
+}

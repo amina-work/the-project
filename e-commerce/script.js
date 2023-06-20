@@ -21,31 +21,27 @@ homeSection.style.backgroundImage = `url(${images[0]})`;
 // Change background image every 5 seconds (5000 milliseconds)
 setInterval(changeBackgroundImage, 5000);
 
+
+
+
 // ==================== FEATURED CONTENT CAROUSEL ====================
-const carouselContainer = document.querySelector('.featured-content');
-const prevBtn = document.getElementById('prevBtn');
-const nextBtn = document.getElementById('nextBtn');
 
-let slideIndex = 0;
-const slideWidth = 100 / 4; // Assuming 4 items are displayed at a time
+const carousel = document.querySelector(".carousel"),
+firstImg = carousel.querySelectorAll(".row")[0],
+arrowIcons = document.querySelectorAll(".wrapper i");
 
-const updateCarouselPosition = () => {
-  carouselContainer.style.transform = `translateX(-${slideIndex * slideWidth}%)`;
-};
-
-const nextSlide = () => {
-  if (slideIndex < 5) {
-    slideIndex++;
-    updateCarouselPosition();
-  }
-};
-
-const prevSlide = () => {
-  if (slideIndex > 0) {
-    slideIndex--;
-    updateCarouselPosition();
-  }
-};
-
-nextBtn.addEventListener('click', nextSlide);
-prevBtn.addEventListener('click', prevSlide);
+let isDragStart = false, isDragging = false, prevPageX, prevScrollLeft, positionDiff;
+const showHideIcons = () => {
+    // showing and hiding prev/next icon according to carousel scroll left value
+    let scrollWidth = carousel.scrollWidth - carousel.clientWidth; // getting max scrollable width
+    arrowIcons[0].style.display = carousel.scrollLeft == 0 ? "none" : "block";
+    arrowIcons[1].style.display = carousel.scrollLeft == scrollWidth ? "none" : "block";
+}
+arrowIcons.forEach(icon => {
+    icon.addEventListener("click", () => {
+        let firstImgWidth = firstImg.clientWidth + 14; // getting first img width & adding 14 margin value
+        // if clicked icon is left, reduce width value from the carousel scroll left else add to it
+        carousel.scrollLeft += icon.id == "left" ? -firstImgWidth : firstImgWidth;
+        setTimeout(() => showHideIcons(), 60); // calling showHideIcons after 60ms
+    });
+});
