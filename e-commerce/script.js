@@ -45,3 +45,20 @@ arrowIcons.forEach(icon => {
         setTimeout(() => showHideIcons(), 60); // calling showHideIcons after 60ms
     });
 });
+
+
+
+
+// ==================== SALE TAG TO SCROLL TO SALES SECTION ====================
+
+// Get all elements with the sale-tag class
+var saleTags = document.getElementsByClassName('sale-tag');
+
+// Loop through each sale-tag element
+for (var i = 0; i < saleTags.length; i++) {
+  // Add click event listener to each sale-tag element
+  saleTags[i].addEventListener('click', function() {
+    // Scroll to the sales section
+    document.getElementById('sales').scrollIntoView({ behavior: 'smooth' });
+  });
+}
