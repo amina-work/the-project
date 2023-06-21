@@ -44,11 +44,30 @@
             </div>
         </div>
         <!--end title card-->
-        <p id="count"></p>
-        <div id="parentDiv">
-            <div class="sectionItem">...</div>
-            <div class="sectionItem">...</div>
-            <div class="sectionItem">...</div>
+        <div class="new-container">
+            <p class="count" id="clothes-count"></p>
+            <div class="parentDiv" id="clothes-container">
+                <div class="clothes-item">...</div> <!--end item 1-->
+                <div class="clothes-item">...</div> <!--end item 2-->
+                <div class="clothes-item">...</div> <!--end item 3-->
+                <div class="clothes-item">...</div> <!--end item 4-->
+                <div class="clothes-item">...</div> <!--end item 5-->
+                <div class="clothes-item">...</div> <!--end item 6-->
+                <div class="clothes-item">...</div> <!--end item 7-->
+                <div class="clothes-item">...</div> <!--end item 8-->
+                <div class="clothes-item">...</div> <!--end item 9-->
+                <div class="clothes-item">...</div> <!--end item 10-->
+                <div class="clothes-item">...</div> <!--end item 11-->
+                <div class="clothes-item">...</div> <!--end item 12-->
+            </div>
+            <div class="pagination">
+                <button class="btn1" onclick="backBtn()"><i class="fa-solid fa-arrow-left"></i></button>
+                <ul>
+                    <li class="link active" value="1" onclick="activeLink()">1</li>
+                    <li class="link" value="2" onclick="activeLink()">2</li>
+                </ul>
+                <button class="btn2" onclick="nextBtn()"><i class="fa-solid fa-arrow-right"></i></button>
+            </div>
         </div>
     </section>
 
@@ -64,6 +83,31 @@
                 <img src="./pics/newbag5.png" alt="">
                 <img src="./pics/newbag6.webp" alt="">
                 <img src="./pics/newbag7.jpg" alt="">
+            </div>
+        </div>
+        <div class="new-container">
+            <p class="count" id="bags-count"></p>
+            <div class="parentDiv" id="bags-container">
+                <div class="bag-item">...</div> <!--end item 1-->
+                <div class="bag-item">...</div> <!--end item 2-->
+                <div class="bag-item">...</div> <!--end item 3-->
+                <div class="bag-item">...</div> <!--end item 4-->
+                <div class="bag-item">...</div> <!--end item 5-->
+                <div class="bag-item">...</div> <!--end item 6-->
+                <div class="bag-item">...</div> <!--end item 7-->
+                <div class="bag-item">...</div> <!--end item 8-->
+                <div class="bag-item">...</div> <!--end item 9-->
+                <div class="bag-item">...</div> <!--end item 10-->
+                <div class="bag-item">...</div> <!--end item 11-->
+                <div class="bag-item">...</div> <!--end item 12-->
+            </div>
+            <div class="pagination">
+                <button class="btn1" onclick="backBtn()"><i class="fa-solid fa-arrow-left"></i></button>
+                <ul>
+                    <li class="link active" value="1" onclick="activeLink()">1</li>
+                    <li class="link" value="2" onclick="activeLink()">2</li>
+                </ul>
+                <button class="btn2" onclick="nextBtn()"><i class="fa-solid fa-arrow-right"></i></button>
             </div>
         </div>
     </section>
@@ -105,6 +149,49 @@
         </div>
     </footer>
   
-    <script src="./script2.js"></script>
+    <script>
+        //========================= new clothes counter ==================
+        const clothesDiv = document.getElementById('clothes-container');
+        const sectionClothes = clothesDiv.getElementsByClassName('clothes-item');
+        const clothesCount = sectionClothes.length;
+        const countClothes = document.getElementById('clothes-count');
+        countClothes.textContent = `${clothesCount} items`;
+
+        //========================= new bags counter ==================
+        const bagsDiv = document.getElementById('bags-container');
+        const sectionBags = bagsDiv.getElementsByClassName('bag-item');
+        const bagsCount = sectionBags.length;
+        const countBags = document.getElementById('bags-count');
+        countBags.textContent = `${bagsCount} items`;
+
+        //========================= pagination for page one ==================
+        let link = document.getElementsByClassName("link");
+        let currentValue = 1;
+        function activeLink(){
+            for(l of link){
+                l.classList.remove("active");
+            }
+            event.target.classList.add("active");
+            currentValue = event.target.value;
+        }
+        function backBtn(){
+            if(currentValue > 1){
+                for(l of link){
+                    l.classList.remove("active");
+                }
+                currentValue--;
+                link[currentValue-1].classList.add("active");
+            }
+        }
+        function nextBtn(){
+            if(currentValue < 2){
+                for(l of link){
+                    l.classList.remove("active");
+                }
+                currentValue++;
+                link[currentValue-1].classList.add("active");
+            }
+        }
+    </script>
 </body>
 </html>
