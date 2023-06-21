@@ -94,6 +94,7 @@ section .section-title p{
     padding: 0px 40px 0px 15px;
     position: relative;
     overflow: hidden;
+    cursor: pointer;
     transition: .4s all ease;
 }
 .page-btn:before {
@@ -174,6 +175,7 @@ header .navbar li a{
     color: var(--clr-txt);
     padding: 0 10px;
     position: relative;
+    font-weight: 600;
     
 }
 header .navbar li a::before{
@@ -201,7 +203,9 @@ header .header-icon a{
     color: var(--clt-txt);
     font-size: 1.2rem;
 }
-
+header .fa-bars{
+    display: none;
+}
 
 
 /* ========== HOME ========== */
@@ -535,16 +539,89 @@ footer .section-title h2 {
 /* =================================================================================================================*/
 /************************************************** NEW PAGE */
 /* =================================================================================================================*/
-.new-clothes{
-    padding: 100px 5%;
+.new-clothes, .new-bags{
+    padding: 100px 0%;
 }
-.new-title{
-    background-color: var(--clr-main);
-    padding: 40px 150px;
+.new-title {
+    position: relative;
+    margin-top: 20px;
+    align-items: center;
+    overflow: hidden;
+    padding-bottom: 50px;
+}
+.new-title h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     color: var(--clr-bg);
-    font-family: 'Roboto', sans-serif;
-    font-weight: 700;
-    text-align: center;
-    font-size: 4rem;
     text-transform: uppercase;
+    font-weight: 700;
+    background-color: rgba(200, 129, 95, 0.5);
+    padding: 30px;
+    font-size: 2rem;
+    z-index: 2;
 }
+.new-title-pics {
+    display: flex;
+    overflow-x: hidden;
+    margin-top: 20px; /* Adjust as needed */
+}
+.new-title-pics img {
+    height: 300px;
+    object-fit: cover;
+    margin-right: -5px; /* Remove space between images */
+    filter: brightness(50%); /* Apply the black shadow tint */
+}
+
+
+
+
+
+
+
+
+
+
+/* Add a media query for smaller screens */
+@media (max-width: 1200px) {
+    header .navbar {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      background-color: var(--clr-bg);
+      padding: 20px;
+      position: fixed;
+      top: 70px; /* Adjust as needed */
+      left: 0;
+      right: 0;
+      transition: all .34s ease-in-out;
+    }
+  
+    header .navbar li {
+      margin-bottom: 15px; /* Adjust as needed */
+    }
+  
+    header .navbar li a {
+      padding: 10px;
+      font-size: 1.2rem;
+      text-align: center;
+      color: var(--clr-txt);
+    }
+  
+    header .header-icon .fa-bars {
+      display: inline-block;
+      font-size: 1.4rem;
+      cursor: pointer;
+      color: var(--clt-txt);
+      margin-left: 10px; /* Adjust as needed */
+    }
+    header.show .navbar{
+        display: flex;
+    }
+
+    .footer-content{
+        grid-template-columns: 1fr;
+    }
+}
+  

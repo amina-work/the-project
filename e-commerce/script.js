@@ -86,10 +86,7 @@ for (var i = 0; i < saleTags.length; i++) {
 
 
 
+// 
 
-// ==================== COUNTING THE NEW ITEMS ====================
-const parentDiv = document.getElementById('parentDiv');
-const sectionItems = parentDiv.getElementsByClassName('sectionItem');
-const count = sectionItems.length;
-const countElement = document.getElementById('count');
-countElement.textContent = "Total items: " + count + " items";
+// Add an event listener to the fa-bars icon
+
