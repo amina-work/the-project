@@ -573,7 +573,7 @@ footer .section-title h2 {
     align-items: center;
     background: transparent;
     color: var(--clr-main);
-    padding: 10px 40px;
+    padding: 40px 40px 10px;
     border-radius: 4px;
     justify-content: center;
 }
@@ -613,16 +613,17 @@ footer .section-title h2 {
 .clothes-item, .bag-item{
     border: 1px solid var(--clr-main);
     box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.6);
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .clothes-item img{
     height: 360px;
-    width: 260px;
-    margin: 10px;
+    margin: 0 40px;
 }
 .bag-item img{
     height: 250px;
-    width: 250px;
-    margin: 10px;
 }
 
 
@@ -694,6 +695,17 @@ footer .section-title h2 {
     .footer-content{
         grid-template-columns: 1fr 1fr;
     }
+
+    /* new page */
+    .new-clothes, .new-bags{
+        padding: 0 5%;
+    }
+    .parentDiv{
+        grid-template-columns: 1fr 1fr;
+    }
+    .new-container{
+        padding: 100px 5%;
+    }
 }
 @media (max-width:900px){
     .onsale-content{
@@ -707,6 +719,11 @@ footer .section-title h2 {
     .onsale-content .sale-tag{
         right: 40px;
     }
+
+    /* new page */
+    .new-clothes, .new-bags{
+        padding: 0%;
+    }
 }
 @media (max-width: 800px) {
     .featured-bags .bags-grid{
@@ -718,10 +735,31 @@ footer .section-title h2 {
     .footer-content{
         grid-template-columns: 1fr;
     }
+
+    /* new page */
+    .new-clothes, .new-bags{
+        padding: 0%;
+    }
+    .parentDiv{
+        grid-template-columns: 1fr 1fr;
+    }
+    .new-container{
+        padding: 100px 3%;
+    }
 }
-@media (max-width:600px){
+@media (max-width:700px){
     .onsale-content{
         grid-template-columns: 1fr;
         padding: 0 70px;
+    }
+    /*new page*/
+    .parentDiv{
+        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .new-container{
+        padding: 100px 14%;    
     }
 }  
