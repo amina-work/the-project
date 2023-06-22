@@ -561,6 +561,8 @@ footer .section-title h2 {
 }
 .count{
     font-family: 'Roboto', sans-serif;
+    text-align: right;
+    padding:0 50px 50px 50px;
 }
 .new-container{
     padding: 100px 14%;
@@ -592,7 +594,7 @@ footer .section-title h2 {
 .pagination ul li.active{
     color: var(--clt-txt);
 }
-.btn1, .btn2{
+.btn1, .btn2, .btn21, .btn22{
     background-color: transparent;
     border: none;
     color: var(--clr-main);
@@ -600,11 +602,28 @@ footer .section-title h2 {
     padding: 10px;
     border-radius: 2px;
 }
-.btn1:hover, .btn2:hover{
+.btn1:hover, .btn2:hover, .btn21:hover, .btn22:hover{
     border: 1px solid var(--clr-main);
 }
-
-
+.parentDiv{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+}
+.clothes-item, .bag-item{
+    border: 1px solid var(--clr-main);
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.6);
+}
+.clothes-item img{
+    height: 360px;
+    width: 260px;
+    margin: 10px;
+}
+.bag-item img{
+    height: 250px;
+    width: 250px;
+    margin: 10px;
+}
 
 
 
