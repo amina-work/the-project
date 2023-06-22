@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elenganza</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Iconscout cdn-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Fonts -->
+    
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="nav">
+        <a href="#home" class="logo">elenganza</a>
+        <ul class="navbar">
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./new.html">New</a></li>
+            <li><a href="./clothing.html">Clothings</a></li>
+            <li><a href="./bags.html">Bags</a></li>
+            <li><a href="./about.html">About Us</a></li>
+        </ul>
+        <div class="header-icon">
+            <a href="#">
+                <i class="fa-solid fa-bag-shopping"></i>
+            </a>
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </header>
+
+    <!-- category section -->
+    <section class="clothing-categories">
+      <div class="category-item" id="all">
+        <button class="category-btn">all</button>
+      </div> <!-- end item 1-->
+      <div class="category-item" id="sets">
+        <button class="category-btn">sets</button>
+      </div> <!-- end item 2-->
+      <div class="category-item" id="shirts">
+        <button class="category-btn">shirts</button>
+      </div> <!-- end item 3-->
+      <div class="category-item" id="dresses">
+        <button class="category-btn">dresses</button>
+      </div> <!-- end item 4-->
+      <div class="category-item" id="tops">
+        <button class="category-btn">tops</button>
+      </div> <!-- end item 5-->
+      <div class="category-item" id="pants">
+        <button class="category-btn">pants</button>
+      </div> <!-- end item 6-->
+      <div class="category-item" id="coats">
+        <button class="category-btn">coats</button>
+      </div> <!-- end item 7-->
+      <div class="category-item" id="jackets">
+        <button class="category-btn">jackets</button>
+      </div> <!-- end item 8-->
+    </section>
+
+    <section class="clothing-items">
+      <div class="clothing-item" data-category="sets">
+        <img src="./pics/clothing1.jpg" alt="sets" onmouseover="changeImage(this, './pics/clothing12.webp')" onmouseout="changeImage(this, './pics/clothing1.jpg')">
+        <div class="content-text">
+          <h5>Pink Shorts & Blazer Set</h5>
+          <p>600£</p>
+          <button class="btn"><a href="#">show more</a></button>
+        </div>
+      </div> <!--end item 1-->
+      <div class="clothing-item" data-category="pants">
+        <img src="./pics/clothing2.jpg" alt="sets" onmouseover="changeImage(this, './pics/clothing21.webp')" onmouseout="changeImage(this, './pics/clothing2.jpg')">
+        <div class="content-text">
+          <h5>Beige Wide-Leg Pants</h5>
+          <p>500£</p>
+          <button class="btn"><a href="#">show more</a></button>
+        </div>
+      </div> <!--end item 2-->
+      <div class="clothing-item" data-category="sets">
+        <img src="./pics/clothing3.webp" alt="sets" onmouseover="changeImage(this, './pics/clothing31.webp')" onmouseout="changeImage(this, './pics/clothing3.webp')">
+        <div class="content-text">
+          <h5>Light Grey Pants & Jacket Set</h5>
+          <p>650£</p>
+          <button class="btn"><a href="#">show more</a></button>
+        </div>
+      </div> <!--end item 3-->
+      <div class="clothing-item" data-category="pants">
+        <img src="./pics/fea1.webp" alt="sets" onmouseover="changeImage(this, './pics/clothing41.jpg')" onmouseout="changeImage(this, './pics/fea1.webp')">
+        <div class="content-text">
+          <h5>High-Waisted Wide-Leg Pants</h5>
+          <p>5̶0̶0̶£ - <span>350£</span></p>
+          <button class="btn"><a href="#">show more</a></button>
+        </div>
+        <span class="sale-tag">30% Sale</span>
+      </div> <!--end item 4-->
+      <div class="clothing-item" data-category="pants">
+        <img src="./pics/fea3.webp" alt="sets" onmouseover="changeImage(this, './pics/clothing51.webp')" onmouseout="changeImage(this, './pics/fea3.webp')">
+        <div class="content-text">
+          <h5>High-Waisted Wide-Leg Pants</h5>
+          <p>5̶0̶0̶£ - <span>350£</span></p>
+          <button class="btn"><a href="#">show more</a></button>
+        </div>
+        <span class="sale-tag">30% Sale</span>
+      </div> <!--end item 5-->
+      <div class="clothing-item" data-category="shirts">
+        <img src="./pics/fea4.webp" alt="sets" onmouseover="changeImage(this, './pics/clothing61.webp')" onmouseout="changeImage(this, './pics/fea4.webp')">
+        <div class="content-text">
+          <h5>Oversized White Button-up shirt</h5>
+          <p>5̶0̶0̶£</p>
+          <button class="btn"><a href="#">show more</a></button>
+        </div>
+      </div> <!--end item 6-->
+      <div class="clothing-item" data-category="sets">
+        <img src="./pics/clothing1.jpg" alt="sets" onmouseover="changeImage(this, './pics/clothing12.webp')" onmouseout="changeImage(this, './pics/clothing1.jpg')">
+        <div class="content-text">
+          <h5>Pink Shorts & Blazer Set</h5>
+          <p>600£</p>
+          <button class="btn"><a href="#">show more</a></button>
+        </div>
+      </div> <!--end item 7-->
+      <div class="clothing-item" data-category="pants">
+        <img src="./pics/clothing2.jpg" alt="sets" onmouseover="changeImage(this, './pics/clothing21.webp')" onmouseout="changeImage(this, './pics/clothing2.jpg')">
+        <div class="content-text">
+          <h5>Beige Wide-Leg Pants</h5>
+          <p>500£</p>
+          <button class="btn"><a href="#">show more</a></button>
+        </div>
+      </div> <!--end item 8-->
+      <div class="clothing-item" data-category="sets">
+        <img src="./pics/clothing3.webp" alt="sets" onmouseover="changeImage(this, './pics/clothing31.webp')" onmouseout="changeImage(this, './pics/clothing3.webp')">
+        <div class="content-text">
+          <h5>Light Grey Pants & Jacket Set</h5>
+          <p>650£</p>
+          <button class="btn"><a href="#">show more</a></button>
+        </div>
+      </div> <!--end item 9-->
+      <div class="clothing-item" data-category="pants">
+        <img src="./pics/fea1.webp" alt="sets" onmouseover="changeImage(this, './pics/clothing41.jpg')" onmouseout="changeImage(this, './pics/fea1.webp')">
+        <div class="content-text">
+          <h5>High-Waisted Wide-Leg Pants</h5>
+          <p>5̶0̶0̶£ - <span>350£</span></p>
+          <button class="btn"><a href="#">show more</a></button>
+        </div>
+        <span class="sale-tag">30% Sale</span>
+      </div> <!--end item 10-->
+      <div class="clothing-item" data-category="pants">
+        <img src="./pics/fea3.webp" alt="sets" onmouseover="changeImage(this, './pics/clothing51.webp')" onmouseout="changeImage(this, './pics/fea3.webp')">
+        <div class="content-text">
+          <h5>High-Waisted Wide-Leg Pants</h5>
+          <p>5̶0̶0̶£ - <span>350£</span></p>
+          <button class="btn"><a href="#">show more</a></button>
+        </div>
+        <span class="sale-tag">30% Sale</span>
+      </div> <!--end item 11-->
+      <div class="clothing-item" data-category="shirts">
+        <img src="./pics/fea4.webp" alt="sets" onmouseover="changeImage(this, './pics/clothing61.webp')" onmouseout="changeImage(this, './pics/fea4.webp')">
+        <div class="content-text">
+          <h5>Oversized White Button-up shirt</h5>
+          <p>5̶0̶0̶£</p>
+          <button class="btn"><a href="#">show more</a></button>
+        </div>
+      </div> <!--end item 12-->
+    </section>
+    
+    <!-- Footer Section -->
+    <footer>
+        <div class="section-title">
+          <h2>Elenganza</h2>
+        </div>
+        <div class="footer-content">
+          <div class="footer-item">
+            <h3>customer</h3>
+            <a href="./index.html">home</a>
+            <a href="./new.html">new</a>
+            <a href="#sales">sales</a>
+            <a href="./terms.html">terms & conditions</a>
+            <a href="./privacy.html">privacy policy</a>
+          </div> <!-- end item 1-->
+          <div class="footer-item">
+            <h3>categories</h3>
+            <a href="./clothing.html">sets</a>
+            <a href="./clothing.html">shirts</a>
+            <a href="./clothing.html">dresses</a>
+            <a href="./clothing.html">tops</a>
+            <a href="./clothing.html">pants</a>
+            <a href="./clothing.html">coats</a>
+            <a href="./clothing.html">jackets</a>
+            <a href="./bags.html">bags</a>
+            <a href="./bags.html">backpacks</a>
+          </div> <!-- end item 2-->
+          <div class="footer-item">
+            <h3>About</h3>
+            <a href="./about.html">about us</a>
+            <p>contact@elenganza.com</p>
+          </div> <!-- end item 3-->
+        </div>
+        <div class="terms">
+          <small>Copyright © 2023 Elenganza</small>
+        </div>
+    </footer>
+
+    <!-- javascript -->
+    <script>
+// Get all category buttons and clothing items
+const categoryButtons = document.querySelectorAll('.category-btn');
+const clothingItems = document.querySelectorAll('.clothing-item');
+
+// Attach click event listener to each category button
+categoryButtons.forEach(categoryButton => {
+  categoryButton.addEventListener('click', () => {
+    const categoryId = categoryButton.parentNode.id;
+
+    // Remove 'active' class from all category buttons
+    categoryButtons.forEach(button => {
+      button.classList.remove('active');
+    });
+
+    // Add 'active' class to the clicked category button
+    categoryButton.classList.add('active');
+
+    // Show/hide clothing items based on the selected category
+    clothingItems.forEach(clothingItem => {
+      const itemCategory = clothingItem.getAttribute('data-category');
+
+      if (categoryId === 'all' || itemCategory === categoryId) {
+        clothingItem.classList.remove('hide');
+      } else {
+        clothingItem.classList.add('hide');
+      }
+    });
+  });
+});
+
+
+
+
+      //changing pics
+      function changeImage(element, newSrc) {
+        element.src = newSrc;
+      }
+    </script>
+</body>
+</html>
