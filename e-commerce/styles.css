@@ -632,6 +632,51 @@ footer .section-title h2 {
 
 
 /* =================================================================================================================*/
+/************************************************** Terms & Conditons and Privacy Pages*/
+/* =================================================================================================================*/
+.terms-page{
+    padding: 100px 0;
+}
+.heading{
+    background-color: var(--clr-lightergrey);
+    padding: 50px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+}
+.heading a{
+    color: var(--clr-grey);
+}
+.heading a, .heading p{
+    padding: 0 10px;
+    font-family: 'Roboto', sans-serif;
+    text-transform: capitalize;
+}
+.heading a:hover{
+    color: var(--clt-txt);
+}
+.terms-content{
+    text-align: center;
+    padding: 30px 14%;
+}
+.terms-content p{
+    font-weight: 300;
+    padding-bottom: 25px;
+}
+.terms-content h3{
+    padding: 35px 0;
+}
+.terms-content p, .terms-content h3{
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+}
+
+
+
+
+/* =================================================================================================================*/
 /************************************************** MEDIA QUERY*/
 /* =================================================================================================================*/
 @media (max-width: 1200px){
