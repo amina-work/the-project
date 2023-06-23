@@ -10,23 +10,24 @@
     <!-- Fonts -->
 </head>
 <body>
-    <!-- Header Section -->
-    <header class="nav">
-      <a href="#home" class="logo">elenganza</a>
-      <ul class="navbar">
-          <li><a href="./index.html">Home</a></li>
-          <li><a href="./new.html">New</a></li>
-          <li><a href="./clothing.html">Clothings</a></li>
-          <li><a href="./bags.html">Bags</a></li>
-          <li><a href="./about.html">About Us</a></li>
-      </ul>
-      <div class="header-icon">
-          <a href="#">
-              <i class="fa-solid fa-bag-shopping"></i>
-          </a>
-          <i class="fa-solid fa-bars"></i>
-      </div>
-    </header>
+  <!-- Header Section -->
+  <header class="navbar-white">
+    <a href="./index.html" class="logo">elenganza</a>
+    <ul class="navbar">
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./new.html">New</a></li>
+        <li><a href="./clothing.html">Clothings</a></li>
+        <li><a href="./bags.html">Bags</a></li>
+        <li><a href="./about.html">About Us</a></li>
+    </ul>
+    <div class="header-icon">
+        <a href="#">
+            <i class="fa-solid fa-bag-shopping"></i>
+        </a>
+    </div>
+    <button id="open__nav-btn"><i class="fa-solid fa-bars"></i></button>
+    <button id="close__nav-btn"><i class="fa-solid fa-xmark"></i></button>
+  </header>
 
     <!-- Terms & conditions -->
     <section class="terms-page" id="terms-page">
@@ -62,8 +63,8 @@
         </div>
     </section>
 
-    <!-- Footer Section -->
-    <footer>
+  <!-- Footer Section -->
+  <footer>
       <div class="section-title">
         <h2>Elenganza</h2>
       </div>
@@ -98,5 +99,26 @@
         <small>Copyright © 2023 Elenganza</small>
       </div>
   </footer>
+
+  <script>
+    // ==================== NAVBAR ====================
+    const navItems = document.querySelector('.navbar');
+    const openNavBtn = document.querySelector('#open__nav-btn');
+    const closeNavBtn = document.querySelector('#close__nav-btn');
+    // open nav dropdown
+    const openNav = () => {
+        navItems.style.display = 'flex';
+        openNavBtn.style.display = 'none';
+        closeNavBtn.style.display = 'inline-block';
+    }
+    // close nav dropdown
+    const closeNav = () => {
+        navItems.style.display = 'none';
+        openNavBtn.style.display = 'inline-block';
+        closeNavBtn.style.display = 'none';
+    }
+    openNavBtn.addEventListener('click', openNav); //call the openNav function
+    closeNavBtn.addEventListener('click', closeNav); //call the closeNav function
+  </script>
 </body>
 </html>
