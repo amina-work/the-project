@@ -829,6 +829,9 @@ footer .section-title h2 {
     section{
         padding: 100px 8%;
     }
+    header{
+        position: fixed;
+    }
     header .navbar {
         position: absolute;
         flex-direction: column;
@@ -868,9 +871,6 @@ footer .section-title h2 {
         color: var(--clt-txt);
         cursor: pointer;
         border: none;
-    }
-    header{
-        position: relative;
     }
     header button#close__nav-btn {
         display: none;
