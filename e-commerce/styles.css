@@ -568,7 +568,7 @@ footer .section-title h2 {
     padding:0 50px 50px 50px;
 }
 .new-container{
-    padding: 100px 14%;
+    padding: 100px 10%;
     background-color: var(--clr-lightergrey);
 }
 .pagination{
@@ -693,8 +693,18 @@ footer .section-title h2 {
     grid-template-columns: repeat(4, 1fr);
     gap: 30px;
     text-align: center;
+    background-color: var(--clr-lightergrey);
+    padding-bottom: 50px;
 }
-.category-btn{
+.bags-categories{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    text-align: center;
+    background-color: var(--clr-lightergrey);
+    padding-bottom: 50px;
+}
+.category-item, .bag-category-item{
     width: 200px;
     height: 50px;
     border: 3px solid var(--clr-main);
@@ -703,25 +713,24 @@ footer .section-title h2 {
     font-size: 1.1rem;
     font-weight: 700;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: rgba(200, 129, 95, 0.7);
 }
-.category-btn:hover{
+.category-item:hover, .bag-category-item:hover{
     background-color: rgba(200, 129, 95, 0.4);
     border: none;
     color: var(--clr-txt);
 }
-.bags-categories{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    text-align: center;
-}
-.clothing-items{
+.clothing-items, .bags-items{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 50px;
     text-align: center;
-    padding: 50px 10%;
+    padding: 100px 10%;
 }
+.bags-item,
 .clothing-item{
     border: 1px solid var(--clr-main);
     box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.6);
@@ -731,13 +740,32 @@ footer .section-title h2 {
     align-items: center;
     position: relative;
 }
+.bags-item img{
+    width: 290px;
+    height: 290px;
+    padding: 5px;
+}
 .clothing-item img{
     padding: 5px 0 5px;
     width: 290px;
     height: 400px;
 }
-
-
+.no-items-message {
+    display: none;
+    text-align: center;
+    color: var(--clt-txt);
+    font-size: 2rem;
+    font-weight: 700;
+    padding-top: 0;
+    padding-bottom: 150px;
+}
+.category-count{
+    padding: 0;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: -50px;
+}
 
 /* =================================================================================================================*/
 /************************************************** MEDIA QUERY*/

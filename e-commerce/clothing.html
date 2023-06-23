@@ -32,32 +32,22 @@
 
     <!-- category section -->
     <section class="clothing-categories">
-      <div class="category-item" id="all">
-        <button class="category-btn">all</button>
-      </div> <!-- end item 1-->
-      <div class="category-item" id="sets">
-        <button class="category-btn">sets</button>
-      </div> <!-- end item 2-->
-      <div class="category-item" id="shirts">
-        <button class="category-btn">shirts</button>
-      </div> <!-- end item 3-->
-      <div class="category-item" id="dresses">
-        <button class="category-btn">dresses</button>
-      </div> <!-- end item 4-->
-      <div class="category-item" id="tops">
-        <button class="category-btn">tops</button>
-      </div> <!-- end item 5-->
-      <div class="category-item" id="pants">
-        <button class="category-btn">pants</button>
-      </div> <!-- end item 6-->
-      <div class="category-item" id="coats">
-        <button class="category-btn">coats</button>
-      </div> <!-- end item 7-->
-      <div class="category-item" id="jackets">
-        <button class="category-btn">jackets</button>
-      </div> <!-- end item 8-->
+      <div class="category-item" id="all">all</div> <!-- end item 1-->
+      <div class="category-item" id="sets">sets</div> <!-- end item 2-->
+      <div class="category-item" id="shirts">shirts</div> <!-- end item 3-->
+      <div class="category-item" id="dresses">dresses</div> <!-- end item 4-->
+      <div class="category-item" id="tops">tops</div> <!-- end item 5-->
+      <div class="category-item" id="pants">pants</div> <!-- end item 6-->
+      <div class="category-item" id="coats">coats</div> <!-- end item 7-->
+      <div class="category-item" id="jackets">jackets</div> <!-- end item 8-->
     </section>
 
+    <!-- category count -->
+    <section class="category-count">
+      <p>See: <span id="categoryCount">12</span> items</p>
+    </section>
+
+    <!-- clothing section -->
     <section class="clothing-items">
       <div class="clothing-item" data-category="sets">
         <img src="./pics/clothing1.jpg" alt="sets" onmouseover="changeImage(this, './pics/clothing12.webp')" onmouseout="changeImage(this, './pics/clothing1.jpg')">
@@ -84,7 +74,7 @@
         </div>
       </div> <!--end item 3-->
       <div class="clothing-item" data-category="pants">
-        <img src="./pics/fea1.webp" alt="sets" onmouseover="changeImage(this, './pics/clothing41.jpg')" onmouseout="changeImage(this, './pics/fea1.webp')">
+        <img src="./pics/fea1.webp" onmouseover="changeImage(this, './pics/clothing41.jpg')" onmouseout="changeImage(this, './pics/fea1.webp')">
         <div class="content-text">
           <h5>High-Waisted Wide-Leg Pants</h5>
           <p>5̶0̶0̶£ - <span>350£</span></p>
@@ -160,6 +150,11 @@
         </div>
       </div> <!--end item 12-->
     </section>
+
+    <!--no items message-->
+    <section class="no-items-message">
+      <p>No items in stock for now</p>
+    </section>
     
     <!-- Footer Section -->
     <footer>
@@ -200,35 +195,48 @@
 
     <!-- javascript -->
     <script>
-// Get all category buttons and clothing items
-const categoryButtons = document.querySelectorAll('.category-btn');
-const clothingItems = document.querySelectorAll('.clothing-item');
+// Get all the category items
+const categoryItems = document.querySelectorAll('.category-item');
 
-// Attach click event listener to each category button
-categoryButtons.forEach(categoryButton => {
-  categoryButton.addEventListener('click', () => {
-    const categoryId = categoryButton.parentNode.id;
-
-    // Remove 'active' class from all category buttons
-    categoryButtons.forEach(button => {
-      button.classList.remove('active');
-    });
-
-    // Add 'active' class to the clicked category button
-    categoryButton.classList.add('active');
-
-    // Show/hide clothing items based on the selected category
-    clothingItems.forEach(clothingItem => {
-      const itemCategory = clothingItem.getAttribute('data-category');
-
-      if (categoryId === 'all' || itemCategory === categoryId) {
-        clothingItem.classList.remove('hide');
-      } else {
-        clothingItem.classList.add('hide');
-      }
-    });
+// Add click event listener to each category item
+categoryItems.forEach(item => {
+  item.addEventListener('click', () => {
+    const category = item.id; // Get the category from the item's ID
+    filterClothingItems(category); // Call the filtering function with the selected category
   });
 });
+function filterClothingItems(category) {
+  // Get all the clothing items
+  const clothingItems = document.querySelectorAll('.clothing-item');
+
+  // Show/hide clothing items based on the selected category
+  let itemsFound = 0; // Counter for the number of items found
+
+  clothingItems.forEach(item => {
+    const itemCategory = item.dataset.category; // Get the item's category from the data-category attribute
+
+    if (category === 'all' || category === itemCategory) {
+      item.style.display = 'block'; // Show the item
+      itemsFound++; // Increment the counter
+    } else {
+      item.style.display = 'none'; // Hide the item
+    }
+  });
+
+  // Update the count element
+  const countElement = document.getElementById('categoryCount');
+  countElement.textContent = itemsFound; // Update the count
+
+  // Show/hide the message element based on the availability of items
+  const messageElement = document.querySelector('.no-items-message');
+  if (itemsFound > 0) {
+    messageElement.style.display = 'none'; // Hide the message
+  } else {
+    messageElement.style.display = 'block'; // Show the message
+  }
+}
+
+
 
 
 

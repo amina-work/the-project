@@ -32,31 +32,74 @@
 
   <!-- category section -->
   <section class="bags-categories">
-    <div class="bag-category-item" id="allbags">
-      <button class="category-btn">all</button>
-    </div> <!-- end item 1-->
-    <div class="bag-category-item" id="bags">
-      <button class="category-btn">bags</button>
-    </div> <!-- end item 2-->
-    <div class="bag-category-item" id="backbacks">
-      <button class="category-btn">backpacks</button>
-    </div> <!-- end item 3-->
+    <div class="bag-category-item" id="allbags">all</div> <!-- end item 1-->
+    <div class="bag-category-item" id="bags">bags</div> <!-- end item 2-->
+    <div class="bag-category-item" id="backbacks">backpacks</div> <!-- end item 3-->
+  </section>
+
+  <!-- category count -->
+  <section class="category-count">
+    <p>See: <span id="bagCategoryCount">6</span> items</p>
   </section>
 
   <section class="bags-items">
-    <div class="bags-item" data-category="bags"></div> <!--end item 1-->
-    <div class="bags-item" data-category="bags"></div> <!--end item 2-->
-    <div class="bags-item" data-category="bags"></div> <!--end item 3-->
-    <div class="bags-item" data-category="bags"></div>  <!--end item 4-->
-    <div class="bags-item" data-category="bags"></div> <!--end item 5-->
-    <div class="bags-item" data-category="backbacks"></div> <!--end item 6-->
-    <div class="bags-item" data-category="backbacks"></div> <!--end item 7-->
-    <div class="bags-item" data-category="backbacks"></div> <!--end item 8-->
-    <div class="bags-item" data-category="bags"></div> <!--end item 9-->
-    <div class="bags-item" data-category="bags"></div> <!--end item 10-->
-    <div class="bags-item" data-category="bags"></div> <!--end item 11-->
+    <div class="bags-item" data-category="bags">
+      <img src="./pics/bag1.jpg" alt="">
+      <div class="content-text">
+        <h5>Large Shoulder Bag in Multi-colored woven nappa leather</h5>
+        <p>670£ - <span>469£</span></p>
+        <button class="btn"><a href="#">show more</a></button>
+      </div>
+      <span class="sale-tag">30% Sale</span>
+    </div> <!--end item 1-->
+    <div class="bags-item" data-category="bags">
+      <img src="./pics/bag3.jpg" alt="">
+      <div class="content-text">
+        <h5>Marc Jacops Beige Tote Bag</h5>
+        <p>840£</p>
+        <button class="btn"><a href="#">show more</a></button>
+      </div>
+    </div> <!--end item 2-->
+    <div class="bags-item" data-category="bags">
+      <img src="./pics/bag4.jpg" alt="">
+      <div class="content-text">
+        <h5>Mini Grass Green Shoulder Bag</h5>
+        <p>340£</p>
+        <button class="btn"><a href="#">show more</a></button>
+      </div>
+    </div> <!--end item 3-->
+    <div class="bags-item" data-category="bags">
+      <img src="./pics/bag5.jpg" alt="">
+      <div class="content-text">
+        <h5>Baby Pink Mini Handbag</h5>
+        <p>590£</p>
+        <button class="btn"><a href="#">show more</a></button>
+      </div>
+      <span class="sale-tag">30% Sale</span>
+    </div>  <!--end item 4-->
+    <div class="bags-item" data-category="bags">
+      <img src="./pics/bag3.jpg" alt="">
+      <div class="content-text">
+        <h5>Marc Jacops Beige Tote Bag</h5>
+        <p>840£</p>
+        <button class="btn"><a href="#">show more</a></button>
+      </div>
+    </div> <!--end item 5-->
+    <div class="bags-item" data-category="backbacks">
+      <img src="./pics/bag6.webp" alt="">
+      <div class="content-text">
+        <h5>Back To School Blue Backpack</h5>
+        <p>290£</p>
+        <button class="btn"><a href="#">show more</a></button>
+      </div>
+    </div> <!--end item 6-->
   </section>
 
+  <!--no items message-->
+  <section class="no-items-message">
+    <p>No items in stock for now</p>
+  </section>
+    
   <!-- Footer Section -->
   <footer>
     <div class="section-title">
@@ -96,34 +139,47 @@
 
   <!-- javascript -->
   <script>
-    // Get all category items and clothing items
-    const bagCategoryItems = document.querySelectorAll('.bag-category-item');
-    const bagsItems = document.querySelectorAll('.bags-item');
+// Get all the category items
+const bagCategoryItems = document.querySelectorAll('.bag-category-item');
 
-    // Attach click event listener to each category item
-    bagCategoryItems.forEach(bagCategoryItem => {
-      bagCategoryItem.addEventListener('click', () => {
-        const bagCategoryId = bagCategoryItem.id;
+// Add click event listener to each category item
+bagCategoryItems.forEach(item => {
+  item.addEventListener('click', () => {
+    const bagCategory = item.id; // Get the category from the item's ID
+    filterBagsItems(bagCategory); // Call the filtering function with the selected category
+  });
+});
+function filterBagsItems(bagCategory) {
+  // Get all the bags items
+  const bagsItems = document.querySelectorAll('.bags-item');
 
-        // Remove 'active' class from all category items
-        bagCategoryItems.forEach(bagItem => {
-          bagItem.classList.remove('active');
-        });
+  // Show/hide bags items based on the selected category
+  let itemsFound = 0; // Counter for the number of items found
 
-        // Add 'active' class to the clicked category item
-        bagCategoryItem.classList.add('active');
+  bagsItems.forEach(item => {
+    const itemCategory = item.dataset.category; // Get the item's category from the data-category attribute
 
-        // Show/hide clothing items based on the selected category
-        bagsItems.forEach(bagsItem => {
-          const bagItemCategory = bagsItem.getAttribute('data-category');
-          if (bagCategoryId === 'allbags' || bagItemCategory === bagCategoryId) {
-              bagItem.classList.remove('hide');
-            } else {
-              bagItem.classList.add('hide');
-            }
-          });
-        });
-      });
+    if (bagCategory === 'allbags' || bagCategory === itemCategory) {
+      item.style.display = 'block'; // Show the item
+      itemsFound++; // Increment the counter
+    } else {
+      item.style.display = 'none'; // Hide the item
+    }
+  });
+
+  // Update the count element
+  const countElement = document.getElementById('bagCategoryCount');
+  countElement.textContent = itemsFound; // Update the count
+
+  // Show/hide the message element based on the availability of items
+  const messageElement = document.querySelector('.no-items-message');
+  if (itemsFound > 0) {
+    messageElement.style.display = 'none'; // Hide the message
+  } else {
+    messageElement.style.display = 'block'; // Show the message
+  }
+}
+
   </script>
 </body>
 </html>
