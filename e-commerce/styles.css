@@ -822,6 +822,68 @@ footer .section-title h2 {
 
 
 
+
+
+
+/* =================================================================================================================*/
+/************************************************** ITEM PAGE*/
+/* =================================================================================================================*/
+.item-grid{
+    display: flex;
+    flex-direction: row;
+    padding: 100px 13%;
+}
+.item-grid .left-side{
+    flex: 0 40%;
+}
+.item-grid .left-side img{
+    width: 300px;
+    height: 100%;
+    border: 1px solid var(--clr-main);
+}
+.item-grid .right-side{
+    flex: 0 60%;
+    padding-top: 40px;
+}
+.item-grid .right-side h1{
+    font-weight: 600;
+}
+.item-grid .right-side h3{
+    padding: 30px 0 70px;
+    font-size: 1.5rem;
+}
+.item-grid .right-side .sizes span{
+    padding: 10px 15px;
+    background-color: var(--clr-lightergrey);
+    font-weight: 600;
+    border: 1px solid var(--clr-darkgrey);
+}
+.item-btn{
+    padding: 15px 30px;
+    margin: 40px 0;
+    border-radius: 10px;
+    background-color: var(--clr-main);
+    border: none;
+    cursor: pointer;
+}
+.item-btn a{
+    color: var(--clr-bg);
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.item-btn:hover{
+    background-color: var(--clr-grey);
+    border: 1px solid var(--clr-main);
+}
+.item-btn:hover a{
+    color: var(--clr-lightergrey);
+}
+
+
+
+
+
 /* =================================================================================================================*/
 /************************************************** MEDIA QUERY*/
 /* =================================================================================================================*/
