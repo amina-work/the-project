@@ -842,6 +842,15 @@ footer .section-title h2 {
     .new-container{
         padding: 100px 5%;
     }
+    .clothing-categories, .bags-categories{
+        grid-template-columns: 1fr 1fr;
+        padding: 30px 15%;
+    }
+    .clothing-items, .bags-items{
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        padding: 100px 5%;
+    }
 }
 @media (max-width:900px){
     .onsale-content{
@@ -882,6 +891,9 @@ footer .section-title h2 {
     .new-container{
         padding: 100px 3%;
     }
+    .clothing-items, .bags-items{
+        padding: 100px 3%;
+    }
 }
 @media (max-width:700px){
     .onsale-content{
@@ -897,5 +909,15 @@ footer .section-title h2 {
     }
     .new-container{
         padding: 100px 14%;    
+    }
+    .clothing-categories, .bags-categories{
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        padding: 30px 7%;
+    }
+    .clothing-items, .bags-items{
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 100px 20%;
     }
 }  
