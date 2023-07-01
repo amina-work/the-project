@@ -199,10 +199,22 @@ header .navbar li a:hover{
 header .header-icon a{
     color: var(--clt-txt);
     font-size: 1.2rem;
+    padding: 10px;
 }
 header button {
     display: none;
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
