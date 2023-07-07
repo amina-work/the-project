@@ -40,6 +40,7 @@ if (isset($_POST['logout'])) {
     margin: 0;
     box-sizing: border-box;
     list-style-type: none;
+    font-family: 'cinzel', serif;
     text-decoration: none;
 }
     .sidebar{
@@ -101,6 +102,7 @@ a{
         padding: 1rem 1.5rem;
         box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
         position: fixed;
+        background: #fff;
         left: 345px;
         width: calc(100% - 345px);
         top: 0;
@@ -112,24 +114,6 @@ a{
     header label i{
         font-size: 1.7rem;
         padding-right: 1rem;
-    }
-    .search-wrapper{
-        border: 1px solid #ccc;
-        border-radius: 30px;
-        height: 50px;
-        display: flex;
-        align-items: center;
-    }
-    .search-wrapper i{
-        display: inline-block;
-        padding: 0rem 1rem;
-        font-size: 1.2rem;
-    }
-    .search-wrapper input{
-        height: 100%;
-        padding: .5rem;
-        border: none;
-        outline: none;
     }
     .user-wrapper{
         display: flex;
@@ -149,7 +133,7 @@ a{
         font-size: 15px;
     }
     .user-wrapper button:hover{
-        font-size: 20px;
+        font-size: 17px;
         color: #fff;
         background: red;
         border-radius: 4px;
@@ -192,11 +176,140 @@ a{
         position: relative;
         padding: 2rem;
     }
+    .customers{
+        position: relative;
+        padding: 9rem 4rem;
+    }
+    .customer-header p{
+        font-family: 'cinzel', serif;
+        font-size: 28px;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: #c8815f;
+    }
+    .customer-body{
+        border-top: 3px solid #333;
+        padding-top: 1.5rem;
+    }
+    #orders .orders{
+        position: relative;
+        padding: 8rem 4rem;
+    }
     .card-header h2{
+        font-family: 'cinzel', serif;
         font-size: 40px;
         margin-bottom: 20px;
         text-transform: uppercase;
     }
+    .product-body{
+        position: relative;
+        padding: 7rem;
+    }
+    .product-body .title h2{
+        font-family: 'cinzel', serif;
+        text-transform: uppercase;
+        font-size: 30px;
+        font-weight: 500;
+        color: var(--clr-main);
+        padding: 20px;
+    }
+    .addproducts{
+        padding: 20px;
+    }
+    .addproducts button{
+        padding: 20px;
+        background: var(--clr-main);
+        color: #fff;
+        font-size: 18px;
+        font-weight: 600;
+        border: none;
+        border-radius: 5px;
+        border-bottom: 2px solid #000;
+    }
+    .categories-container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px 25px;
+    }
+    .category:last-child {
+    grid-column: 1 / span 2;
+    justify-self: center;
+    }
+    .category{
+    position: relative;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--clr-main);  
+    }
+    .category:before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    }
+    .category:hover::before{
+    opacity: 1;
+    }
+    .category h2,
+    .category button {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: var(--clr-bg);
+    }
+    .btn-category {
+    background: none;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    padding: 10px 20px;
+    font-size: 18px;
+    }
+    .category i {
+    transition: transform 0.2s;
+    }
+    .category:hover i{
+    transform: translateX(5px);
+    }
+    .new-product{
+        position: relative;
+        padding: 2rem;
+        margin-top: 2rem;
+        background: var(--clr-lightergrey);
+        border: 3px solid var(--clr-main);
+        box-shadow: 1px 0px 0px 1px rgba(0, 0, 0, .7);
+    }
+    .new-product p{
+        padding:0 5px 20px 0px;
+        font-size: 20px;
+        font-weight: 500;
+        color: #000;
+    }
+    .col{
+        margin-bottom: 1rem;
+    }
+    .accounts{
+        position: relative;
+        padding: 7rem;
+    }
+    .account-header p {
+        font-family: 'cinzel', serif;
+        text-transform: uppercase;
+        font-size: 25px;
+        font-weight: 500;
+        color: var(--clr-main);
+        padding: 20px;
+    }
+
+
+
     #nav-toggle{
         display: none;
     }
@@ -250,9 +363,6 @@ a{
         .cards{
             grid-template-columns:100%;
         }
-        .search-wrapper{
-            display: none;
-        }
     }
     </style>
 </head>
@@ -266,13 +376,13 @@ a{
             <ul id="myLinks">
                 <li><a href="#main" class="active"><i class="fa-solid fa-house"></i><span>Dashboard</span></a></li>
                 <li><a href="#customers"><i class="fa-solid fa-users"></i><span>Customers</span></a></li>
-                <li><a href="#orders"><i class="fa-solid fa-basket-shopping"></i><span>Orders</span></a></li>
                 <li><a href="#products"><i class="fa-solid fa-tag"></i><span>Products</span></a></li>
                 <li><a href="#accounts"><i class="fa-solid fa-user"></i><span>Accounts</span></a></li>
             </ul>
         </div>
     </div>
     <section id="containers">
+        <!--main dashboard-->
     <div id="main" class="section main-content">
         <header>
             <h2>
@@ -281,10 +391,7 @@ a{
                 </label>
                 Dashboard
             </h2>
-            <div class="search-wrapper">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="search" placeholder="Search here" />
-            </div>
+        
             <div class="user-wrapper">
                 <a href="#"><i class="fa-solid fa-user"></i></a>
                     <h4>Admin</h4>
@@ -293,10 +400,6 @@ a{
                     </form>
             </div>
         </header>
-
-
-
-
         <main>
             <div class="cards">
                 <div class="card-single">
@@ -327,138 +430,438 @@ a{
                     </div>
                 </div>
             </div>
-            
-                <div class="orders">
-                        <div class="card-header">
-                        <h2>Orders</h2>
-                                <ul id="myTabs" class="nav nav-tabs">
-                                <li class="nav-item">
-                                    <a class="nav-link active" aria-current="page" href="#all">All orders</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#completed">Completed</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#panding">Panding</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#canceled">Canceled</a>
-                                </li>
-                                </ul>
-                        </div>
-                        <div id="tableContainer" class="card-body">
-                            <!--all orders table-->
-                        <table id="all" class="table">
-                            <thead>
-                                <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">OrderID</th>
-                                <th scope="col">ProductName</th>
-                                <th scope="col">Address</th>
-                                <th scope="col">Date</th>
-                                <th scope="col">Price</th>
-                                <th scope="col">Status</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <!--completed orders table-->
-                        <table id="completed" class="table">
-                            <thead>
-                                <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">OrderID</th>
-                                <th scope="col">ProductName</th>
-                                <th scope="col">Address</th>
-                                <th scope="col">Date</th>
-                                <th scope="col">Price</th>
-                                <th scope="col">Status</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                <th scope="row">2</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <!--panding orders table-->
-                        <table id="panding" class="table">
-                            <thead>
-                                <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">OrderID</th>
-                                <th scope="col">ProductName</th>
-                                <th scope="col">Address</th>
-                                <th scope="col">Date</th>
-                                <th scope="col">Price</th>
-                                <th scope="col">Status</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                <th scope="row">3</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <!--canceled orders table-->
-                        <table id="canceled" class="table">
-                            <thead>
-                                <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">OrderID</th>
-                                <th scope="col">ProductName</th>
-                                <th scope="col">Address</th>
-                                <th scope="col">Date</th>
-                                <th scope="col">Price</th>
-                                <th scope="col">Status</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                <th scope="row">4</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        </div>
-                </div>
+        <div class="orders">
+        <div class="card-header">
+            <h2>Orders</h2>
+            <ul id="myTabs" class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#all">All orders</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#completed">Completed</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#panding">Panding</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#canceled">Canceled</a>
+                </li>
+            </ul>
+        </div>
+        <div id="tableContainer" class="card-body">
+        <!--all orders table-->
+        <table id="all" class="table">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">OrderID</th>
+                <th scope="col">ProductName</th>
+                <th scope="col">Address</th>
+                <th scope="col">Date</th>
+                <th scope="col">Price</th>
+                <th scope="col">Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            </tbody>
+        </table>
+            <!--completed orders table-->
+            <table id="completed" class="table">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">OrderID</th>
+                <th scope="col">ProductName</th>
+                <th scope="col">Address</th>
+                <th scope="col">Date</th>
+                <th scope="col">Price</th>
+                <th scope="col">Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">2</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                </tr>
+            </tbody>
+            </table>
+            <!--panding orders table-->
+            <table id="panding" class="table">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">OrderID</th>
+                <th scope="col">ProductName</th>
+                <th scope="col">Address</th>
+                <th scope="col">Date</th>
+                <th scope="col">Price</th>
+                <th scope="col">Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">3</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            </tbody>
+            </table>
+            <!--canceled orders table-->
+            <table id="canceled" class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">OrderID</th>
+                    <th scope="col">ProductName</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Status</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">4</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                </tbody>
+                </table>
+            </div>
+        </div>
         </main>
     </div>
-    <div id="customers" class="section">Customers section</div>
-    <div id="orders" class="section">Orders section</div>
-    <div id="products" class="section">Products section</div>
-    <div id="accounts" class="section">Accounts section</div>
+
+
+
+    <!--customers dashboard-->
+    <div id="customers" class="section main-content">
+    <header>
+            <h2>
+                <label for="nav-toggle">
+                <i class="fa-solid fa-bars"></i>
+                </label>
+                Dashboard
+            </h2>
+            
+            <div class="user-wrapper">
+                <a href="#"><i class="fa-solid fa-user"></i></a>
+                    <h4>Admin</h4>
+                    <form method="post">
+                        <button type="submit" name="logout"><i class="fa-sharp fa-solid fa-right-from-bracket">Log Out</i></button>
+                    </form>
+            </div>
+        </header>
+
+        <div class="customers">
+            <div class="customer-header">
+                <p>List of customers</p>
+            </div>
+        <div class="customer-body">
+        <table class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+        </tr>
+        </tbody>
+        </table>
+        </div>
+        </div>
+    </div>
+
+    <!--products dashboard-->
+    <div id="products" class="section main-content">
+    <header>
+            <h2>
+                <label for="nav-toggle">
+                <i class="fa-solid fa-bars"></i>
+                </label>
+                Dashboard
+            </h2>
+
+            <div class="user-wrapper">
+                <a href="#"><i class="fa-solid fa-user"></i></a>
+                    <h4>Admin</h4>
+                    <form method="post">
+                        <button type="submit" name="logout"><i class="fa-sharp fa-solid fa-right-from-bracket">Log Out</i></button>
+                    </form>
+            </div>
+        </header>
+        <div class="product-body">
+            <div class="addproducts">
+                <button type="button"><a href="#new">Add new product</a></button>
+            </div>
+            <div class="title">
+                <h2>all products</h2>
+            </div>
+            <div class="categories-container">
+            <div class="category" onclick="window.location.href='./clothing.html#sets'">
+              
+              <div>
+                <h2>Sets</h2>
+                <button class="btn-category">
+                  <span>view products<i class="fa-solid fa-arrow-right"></i></span>
+                </button>
+              </div>
+            </div> <!-- end item 1 -->
+
+            <div class="category" onclick="window.location.href='./clothing.html#shirts'">
+              
+              <div>
+                <h2>Shirts</h2>
+                <button class="btn-category">
+                  <span>view products<i class="fa-solid fa-arrow-right"></i></span>
+                </button>
+              </div>
+            </div> <!-- end item 2 -->
+
+            <div class="category" onclick="window.location.href='./clothing.html#dresses'">
+              
+              <div>
+                <h2>dresses</h2>
+                <button class="btn-category">
+                  <span>view products<i class="fa-solid fa-arrow-right"></i></span>
+                </button>
+              </div>
+            </div> <!-- end item 3 -->
+
+            <div class="category" onclick="window.location.href='./clothing.html#tops'">
+              <img src="./pics/category4.jpg" alt="">
+              <div>
+                <h2>tops</h2>
+                <button class="btn-category">
+                  <span>view products<i class="fa-solid fa-arrow-right"></i></span>
+                </button>
+              </div>
+            </div> <!-- end item 4 -->
+
+            <div class="category" onclick="window.location.href='./clothing.html#pants'">
+              
+              <div>
+                <h2>pants</h2>
+                <button class="btn-category">
+                  <span>view products<i class="fa-solid fa-arrow-right"></i></span>
+                </button>
+              </div>
+            </div> <!-- end item 5 -->
+
+            <div class="category" onclick="window.location.href='./clothing.html#coats'">
+              
+              <div>
+                <h2>coats</h2>
+                <button class="btn-category">
+                  <span>view products<i class="fa-solid fa-arrow-right"></i></span>
+                </button>
+              </div>
+            </div> <!-- end item 6 -->
+
+            <div class="category" onclick="window.location.href='./clothing.html#jackets'">
+              
+              <div>
+                <h2>jackets</h2>
+                <button class="btn-category">
+                  <span>view products<i class="fa-solid fa-arrow-right"></i></span>
+                </button>
+              </div>
+            </div> <!-- end item 7 -->
+
+            <div class="category" onclick="window.location.href='./bags.html#bags'">
+              
+              <div>
+                <h2>bags</h2>
+                <button class="btn-category">
+                  <span>view products<i class="fa-solid fa-arrow-right"></i></span>
+                </button>
+              </div>
+            </div> <!-- end item 8 -->
+
+            <div class="category" onclick="window.location.href='./bags.html#backpacks'">
+              
+              <div>
+                <h2>Backpacks</h2>
+                <button class="btn-category">
+                  <span>view products<br/><i class="fa-solid fa-arrow-right"></i></span>
+                </button>
+              </div>
+            </div> <!-- end item 9 -->
+          </div>
+
+
+          <div id="new" class="new-product">
+            <p>ajouter un nouveau produit:</p>
+            <form>
+            <div class="row">
+                <div class="col">
+                <input type="text" class="form-control" placeholder="Product's name">
+                </div>
+                <div class="col">
+                <input type="text" class="form-control" placeholder="Product's price">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                <input type="number" class="form-control" placeholder="Number in stock">
+                </div>
+                <div class="col">
+                    
+                    <label>Product's image</label>
+                    <input type="file" class="form-control-file" multiple>
+                    
+                </div>
+            </div>
+            <div class="row">
+            <div class="col">
+                <label for="sizeS">S:</label>
+                <input type="number" id="sizeS" class="form-control" name="productSizeS" min="0">
+            </div>
+            <div class="col">
+                <label for="sizeM">M:</label>
+                <input type="number" id="sizeM" class="form-control" name="productSizeM" min="0">
+            </div>
+            <div class="col">
+                <label for="sizeL">L:</label>
+                <input type="number" id="sizeL" class="form-control" name="productSizeL" min="0">
+            </div>
+            <div class="col">
+                <label for="sizeXL">XL:</label>
+                <input type="number" id="sizeXL" class="form-control" name="productSizeXL" min="0">
+            </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                <label>categories:</label>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="sets">
+                        <label class="form-check-label" for="sets">SETS</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="jackets">
+                        <label class="form-check-label" for="jackets">JACKETS</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="coats">
+                        <label class="form-check-label" for="coats">COATS</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="pants">
+                        <label class="form-check-label" for="pants">PANTS</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="tops">
+                        <label class="form-check-label" for="tops">TOPS</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="dresses">
+                        <label class="form-check-label" for="dresses">DRESSES</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="shirts">
+                        <label class="form-check-label" for="shirts">SHIRTS</label>
+                    </div> 
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="bags">
+                        <label class="form-check-label" for="bags">BAGS</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="backpacks">
+                        <label class="form-check-label" for="backpacks">BACKPACKS</label>
+                    </div>           
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                    <label for="productDescription">Product description</label>
+                    <textarea class="form-control" id="productDescription" rows="3"></textarea>
+                    </div>
+                </div>
+            </div>
+            </form>
+          </div>
+        </div>
+    </div>
+
+
+
+    <!--accounts dashboard-->
+    <div id="accounts" class="section main-content">
+        <header>
+            <h2>
+                <label for="nav-toggle">
+                <i class="fa-solid fa-bars"></i>
+                </label>
+                Dashboard
+            </h2>
+            
+            <div class="user-wrapper">
+                <a href="#"><i class="fa-solid fa-user"></i></a>
+                    <h4>Admin</h4>
+                    <form method="post">
+                        <button type="submit" name="logout"><i class="fa-sharp fa-solid fa-right-from-bracket">Log Out</i></button>
+                    </form>
+            </div>
+        </header>
+        <div class="accounts">
+            <div class="account-header">
+                <p>List of accounts</p>
+            </div>
+            <div class="account-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">name</th>
+                            <th scope="col">date inscription</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td scope="row"></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
     </section>
 
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
     <script>
             $(document).ready(function() {
         $('#nav-toggle').change(function() {
@@ -472,34 +875,40 @@ a{
         });
         });
     </script>
+
+
 <script>
-    $(document).ready(function() {
-        // Hide all tables except the first one initially
-        $('#tableContainer table:not(:first)').hide();
+$(document).ready(function() {
+  // Hide all tables except the initially active one
+  const activeTab = $('.nav-link.active').attr('href');
+  $('#tableContainer table').not(activeTab).hide();
 
-        // Add click event handler to the tab links
-        $('#myTabs a').click(function(e) {
-            e.preventDefault(); // Prevent the default link behavior
+  // Add click event handler to the tab links
+  $('#myTabs a').click(function(e) {
+    e.preventDefault(); // Prevent the default link behavior
+
+    // Remove "active" class from all tab links
+    $('#myTabs a').removeClass('active');
+
+    // Add "active" class to the clicked tab link
+    $(this).addClass('active');
+
+    // Get the ID of the selected tab
+    const selectedTab = $(this).attr('href');
+
+    // Hide all tables
+    $('#tableContainer table').hide();
+
+    // Display the selected table
+    $(selectedTab).show();
+  });
+});
 
 
-            // Remove "active" class from all tab links
-            $('#myTabs a').removeClass('active');
-
-            // Add "active" class to the clicked tab link
-            $(this).addClass('active');
-
-
-            // Get the ID of the selected tab
-            const selectedTab = $(this).attr('href');
-
-            // Hide all tables
-            $('#tableContainer table').hide();
-
-            // Display the selected table
-            $(selectedTab).show();
-        });
-    });
 </script>
+
+
+
 <script>
     $(document).ready(function() {
         // Hide all sections except the first one initially
