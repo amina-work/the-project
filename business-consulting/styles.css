@@ -43,8 +43,8 @@ body{
     color: var(--clr-txt);
 }
 .nav .logo h2 span{
-    background-color: var(--clr-secondary);
-    color: var(--clr-white);
+    background-color: var(--clr-third);
+    color: #111;
     text-transform: uppercase;
 }
 .nav .nav-items{
@@ -113,4 +113,34 @@ body{
 .home .home-img img{
     width: 350px;
     height: 350px;
+}
+
+/* ========================== About ========================== */
+.about{
+    padding: 50px 0;
+    background-color: #1b4405;
+}
+.about-cards{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 150px;
+    padding: 0 14%;
+}
+.about-card{
+    background-color: var(--clr-bg);
+    padding: 50px;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 24px;
+}
+.about-card i{
+    padding: 15px;
+    border-radius: 50%;
+    color: #111;
+    background-color: var(--clr-third);
+    font-size: 20px;
 }

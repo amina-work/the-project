@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;600&family=Roboto:wght@300;400;500;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    font-family: 'Montserrat', sans-serif;
+}
+:root{
+    --clr-bg: #F2F2F2;
+    --clr-accent: #FF5A5F;
+    --clr-black: #111;
+    --clr-txt: #312f2f;
+    --clr-grey: #555555;
+}
+
+/* ============================ General ============================ */
+body{
+    background-color: var(--clr-bg);
+}
+.container{
+    padding: 100px 25%;
+}
+h2{
+    color: var(--clr-accent);
+}
+
+/* ============================ Header ============================ */
+header{
+    padding: 20px 25%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+header .logo{
+    font-weight: 700;
+    text-transform: capitalize;
+}
+header .nav{
+    display: flex;
+    flex-direction: row;
+}
+header .nav li{
+    padding: 0 15px;
+    text-transform: uppercase;
+    font-size: .9rem;
+}
+header .nav li a{
+    color: var(--clr-txt);
+    position: relative;
+}
+header .nav li a::after {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 8px;
+    background-color: transparent;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+header .nav li .contact{
+    color: var(--clr-accent);
+    font-weight: 600;
+}
+header .nav li a:hover::after, 
+header .nav li a.active::after {
+    height: 8px;
+    width: 8px;
+    background-color: var(--clr-accent);
+}
+
+/* ============================ Footer ============================ */
+footer h2{
+    line-height: 3;
+}
+footer .socials{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+footer .socials a{
+    color: var(--clr-black);
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    font-weight: 500;
+}
+footer .socials a:hover{
+    color: var(--clr-grey);
+}
