@@ -27,6 +27,23 @@ h2{
     color: var(--clr-accent);
     padding: 35px 5px;
 }
+.content-intro{
+    padding-top: 40px;
+}
+.content-intro h1{
+    line-height: 3;
+}
+p{
+    line-height: 2;
+}
+.seperator {
+    display: block;
+    height: 1px;
+    width: 100px;
+    background-color: var(--clr-grey);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+    margin: 50px 0 70px 10px;
+}
 
 
 
@@ -118,15 +135,6 @@ footer .socials a:hover{
 
 
 /* ============================ Home Page ============================ */
-.home-content{
-    padding-top: 100px;
-}
-.home-content h1{
-    line-height: 3;
-}
-.home-content p{
-    line-height: 2;
-}
 .home-content p a{
     position: relative;
     color: var(--clr-txt);
@@ -153,4 +161,79 @@ footer .socials a:hover{
     border-radius: 50%;
     background-color: var(--clr-accent);
     margin: 0 25px;
+}
+
+
+
+/* ============================ Blogs Page ============================ */
+.blogs{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+.blog-item {
+    padding: 5px 20px 25px;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
+    transition: transform 0.2s ease;
+}
+.blog-item:hover {
+    transform: scale(1.05);
+}
+.blog-item .blog-date{
+    font-family: 'Roboto', sans-serif;
+    color: var(--clr-grey);
+    font-style: italic;
+    font-weight: 600;
+}
+.blog-item .blog-title{
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+.blog-item .blog-desc{
+    font-size: 0.8rem;
+    color: var(--clr-txt);
+}
+
+
+
+/* ============================ Works Page ============================ */
+.works{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+.works .work-item{
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+.works .work-item img{
+    width: 350px;
+    border-radius: 10px;
+}
+.overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: rgba(255, 90, 95, 0.8);
+    padding: 20px;
+    box-sizing: border-box;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.work-item:hover .overlay {
+    opacity: 1;
+}
+.overlay small {
+    color: var(--clr-bg);
+    font-weight: 700;
+    text-align: center;
+    text-transform: capitalize;
 }
