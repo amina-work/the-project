@@ -21,12 +21,12 @@ body{
     background-color: var(--clr-bg);
 }
 .container{
-    padding: 100px 25%;
+    padding: 50px 25%;
 }
 h2{
     color: var(--clr-accent);
+    padding: 35px 5px;
 }
-
 /* ============================ Header ============================ */
 header{
     padding: 20px 25%;
@@ -76,9 +76,6 @@ header .nav li a.active::after {
 }
 
 /* ============================ Footer ============================ */
-footer h2{
-    line-height: 3;
-}
 footer .socials{
     display: flex;
     flex-direction: column;
