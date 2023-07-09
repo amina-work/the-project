@@ -9,17 +9,22 @@
 <body>
     <!--The Header Section-->
     <header>
-        <div class="logo">
-            <span></span>
-            <a href="./index.html">Amina</a>
+        <div class="header-wrapper">
+            <div class="logo">
+                <span></span>
+                <a href="./index.html">Amina</a>
+            </div>
+            <ul class="nav">
+                <li><a href="./index.html" class="active">Home</a></li>
+                <li><a href="./blogs.html">Blogs</a></li>
+                <li><a href="./work.html">Work</a></li>
+                <li><a class="contact" href="#connect">Connect</a></li>
+            </ul>
+            <button id="open__nav-btn"><i class="fa-solid fa-bars"></i></button>
+            <button id="close__nav-btn"><i class="fa-solid fa-xmark"></i></button>
         </div>
-        <ul class="nav">
-            <li><a href="./index.html" class="active">Home</a></li>
-            <li><a href="./blogs.html">Blogs</a></li>
-            <li><a href="./work.html">Work</a></li>
-            <li><a class="contact" href="#connect">Connect</a></li>
-        </ul>
     </header>
+      
 
     <section class="home-content container">
         <div class="content-intro">
@@ -43,6 +48,8 @@
             <li><a href="#"><i class="fa-solid fa-envelope"></i> Email</a></li>
         </ul>
     </footer>
+
+    <script src="./app.js"></script>
 
 </body>
 </html>

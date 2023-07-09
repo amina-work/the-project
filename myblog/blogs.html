@@ -9,16 +9,20 @@
 <body>
     <!--The Header Section-->
     <header>
-        <div class="logo">
-            <span></span>
-            <a href="./index.html">Amina</a>
+        <div class="header-wrapper">
+            <div class="logo">
+                <span></span>
+                <a href="./index.html">Amina</a>
+            </div>
+            <ul class="nav">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./blogs.html" class="active">Blogs</a></li>
+                <li><a href="./work.html">Work</a></li>
+                <li><a class="contact" href="#connect">Connect</a></li>
+            </ul>
+            <button id="open__nav-btn"><i class="fa-solid fa-bars"></i></button>
+            <button id="close__nav-btn"><i class="fa-solid fa-xmark"></i></button>
         </div>
-        <ul class="nav">
-            <li><a href="./index.html">Home</a></li>
-            <li><a href="./blogs.html" class="active">Blogs</a></li>
-            <li><a href="./work.html">Work</a></li>
-            <li><a class="contact" href="#connect2">Connect</a></li>
-        </ul>
     </header>
 
     <section class="blogs-content container">
@@ -46,7 +50,7 @@
         </div>
     </section>
 
-    <footer class="container" id="connect2">
+    <footer class="container" id="connect">
         <h2>Connect</h2>
         <ul class="socials">
             <li><a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a></li>
@@ -55,6 +59,8 @@
             <li><a href="#"><i class="fa-solid fa-envelope"></i> Email</a></li>
         </ul>
     </footer>
+
+    <script src="./app.js"></script>
 
 </body>
 </html>

@@ -9,16 +9,20 @@
 <body>
     <!--The Header Section-->
     <header>
-        <div class="logo">
-            <span></span>
-            <a href="./index.html">Amina</a>
+        <div class="header-wrapper">
+            <div class="logo">
+                <span></span>
+                <a href="./index.html">Amina</a>
+            </div>
+            <ul class="nav">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./blogs.html">Blogs</a></li>
+                <li><a href="./work.html" class="active">Work</a></li>
+                <li><a class="contact" href="#connect">Connect</a></li>
+            </ul>
+            <button id="open__nav-btn"><i class="fa-solid fa-bars"></i></button>
+            <button id="close__nav-btn"><i class="fa-solid fa-xmark"></i></button>
         </div>
-        <ul class="nav">
-            <li><a href="./index.html">Home</a></li>
-            <li><a href="./blogs.html">Blogs</a></li>
-            <li><a href="./work.html" class="active">Work</a></li>
-            <li><a class="contact" href="#connect3">Connect</a></li>
-        </ul>
     </header>
 
     <section class="work-content container">
@@ -50,7 +54,7 @@
     </section>
 
 
-    <footer class="container" id="connect3">
+    <footer class="container" id="connect">
         <h2>Connect</h2>
         <ul class="socials">
             <li><a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a></li>
@@ -60,5 +64,6 @@
         </ul>
     </footer>
 
+    <script src="./app.js"></script>
 </body>
 </html>
