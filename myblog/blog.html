@@ -29,8 +29,7 @@
             </div>
             <div class="toc-content">
                 <h3>Table of Contents</h3>
-                <a href="#">Introduction</a>
-                <a href="#">Lorem ko</a>
+                <div id="toc"></div>
             </div>
         </div>
             
@@ -87,6 +86,32 @@
         </div>
     </div>
 
-    <script src="./app.js"></script>
+    <script>
+        const toggleArrow = document.querySelector('.toggle-arrow');
+        const blogTOC = document.querySelector('.blog-toc');
+
+        toggleArrow.addEventListener('click', function() {
+            blogTOC.classList.toggle('open');
+        });
+
+        // Get all the headings inside the blog-text container
+        const headings = document.querySelectorAll('.blog-text h2');
+        // Generate the table of contents
+        const toc = document.getElementById('toc');
+        headings.forEach((heading, index) => {
+            const anchor = document.createElement('a');
+            anchor.href = `#section-${index}`;
+            anchor.textContent = heading.textContent;
+            toc.appendChild(anchor);
+
+            // Add an id to the heading for linking purposes
+            heading.id = `section-${index}`;
+        });
+
+
+        function redirectToBlog() {
+            window.location.href = "./blog.html";
+        }
+    </script>
 </body>
 </html>

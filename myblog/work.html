@@ -39,18 +39,6 @@
                     <small>ecommerce website design</small>
                 </div>
             </div>
-            <div class="work-item">
-                <img src="./work2.png" alt="">
-                <div class="overlay">
-                    <small>ecommerce website design</small>
-                </div>
-            </div>
-            <div class="work-item">
-                <img src="./work1.png" alt="">
-                <div class="overlay">
-                    <small>ecommerce website design</small>
-                </div>
-            </div>
         </div>
 
         <div class="popup-img">
@@ -70,6 +58,18 @@
         </ul>
     </footer>
 
-    <script src="./app.js"></script>
+    <script>
+        /////////////////////////////////// Work images
+        document.querySelectorAll('.works img').forEach(image =>{
+            image.onclick = () =>{
+                document.querySelector('.popup-img').style.display = 'block';
+                document.querySelector('.popup-img img').src = image.getAttribute('src');
+            }
+        })
+        document.querySelector('.popup-img span').onclick = () =>{
+            document.querySelector('.popup-img').style.display = 'none';
+        }
+
+    </script>
 </body>
 </html>
