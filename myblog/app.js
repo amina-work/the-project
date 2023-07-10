@@ -1,3 +1,12 @@
+
+const toggleArrow = document.querySelector('.toggle-arrow');
+const blogTOC = document.querySelector('.blog-toc');
+
+toggleArrow.addEventListener('click', function() {
+    blogTOC.classList.toggle('open');
+});
+
+
 const navItems = document.querySelector('.nav');
 const openNavBtn = document.querySelector('#open__nav-btn');
 const closeNavBtn = document.querySelector('#close__nav-btn');
@@ -17,6 +26,12 @@ const closeNav = () => {
 openNavBtn.addEventListener('click', openNav); //call the openNav function
 closeNavBtn.addEventListener('click', closeNav); //call the closeNav function
 
+
+
+///////////////////////////////////// blog Page
+function redirectToBlog() {
+    window.location.href = "./blog.html";
+}
 
 
 

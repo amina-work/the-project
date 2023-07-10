@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;600&family=Roboto:wght@300;400;500;700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;600&family=Noto+Serif:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap');
 *{
     margin: 0;
     padding: 0;
@@ -180,7 +179,6 @@ footer .socials a:hover{
 .blogs{
     display: flex;
     flex-direction: column;
-    gap: 50px;
 }
 .blog-item {
     padding: 5px 20px 25px;
@@ -206,40 +204,116 @@ footer .socials a:hover{
     color: var(--clr-txt);
 }
 
-#blog-modal {
-    display: none; /* Hide the modal by default */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
-    z-index: 9999;
-    overflow-y: scroll; /* Enable vertical scrolling if content overflows */
-  }
-  
-  .modal-content {
-    position: relative;
-    width: 80%;
-    max-width: 800px;
-    margin: 50px auto;
-    background-color: #fff;
-    padding: 20px;
-  }
-  
-  .modal-header {
-    margin-bottom: 10px;
-  }
-  
-  .modal-header h2 {
-    margin-top: 0;
-  }
-  
-  .modal-body {
-    max-height: 70vh; /* Limit the height of the body content to enable scrolling */
-    overflow-y: auto;
-  }
+/* ============================ Blog Page ============================ */
+.goback{
+    color: var(--clr-black);
+    padding: 15px 35px 15px 15px;
+    border: 1px solid var(--clr-txt);
+    position: absolute;
+    top: 30px;
+    left: 25px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+.goback:hover{
+    background-color: #e3dbdb;
+}
+.blog-time{
+    cursor: pointer;
+    color: var(--clr-black);
+    position: absolute;
+    top: 40px;
+    right: 25px;
+    text-transform: capitalize;
+    padding: 5px;
+    border: 1px solid var(--clr-txt);
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+.blog-item:hover{
+    background-color: #e3dbdb;
+}
+.the-blog{
+    padding-top: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.the-blog .blog-date{
+    color: var(--clr-txt);
+    font-style: italic;
+    font-weight: bolder;
+    font-size: 0.8rem;
+    padding-bottom: 30px;
+}
+.the-blog .blog-time{
+    font-size: x-small;
+}
+.the-blog .blog-title p{
+    font-size: 2rem;
+    font-family: 'Noto Serif', serif;
+    text-transform: capitalize;
+    font-weight: bolder;
+    padding-bottom: 30px;
+}
+.the-blog .blog-synopsis{
+    width: 400px;
+    text-align: center;
+}
+.the-blog .blog-text{
+    text-align: center;
+    line-height: 1.6;
+}
+.the-blog .blog-text h2{
+    font-size: 1rem;
+    text-transform: capitalize;
+}
 
+.blog-toc{
+    position: fixed;
+    right: 0;
+    top: 45%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.blog-toc .toc-content{
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 100%;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+.blog-toc .toc-content h3, 
+.blog-toc .toc-content a{
+    padding: 10px 7px;
+    font-size: 0.9rem;
+    display: block;
+}
+.blog-toc .toc-content a{
+    color: var(--clr-black);
+}
+.blog-toc .toc-content a:hover{
+    color: var(--clr-accent);
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+.blog-toc .toggle-arrow{
+    cursor: pointer;
+    padding: 10px;
+    border: 1px solid var(--clr-grey);
+    border-right: none;
+    border-top-left-radius: 100%;
+    border-bottom-left-radius: 100%;
+    box-shadow: -1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+.blog-toc .toggle-arrow:hover{
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+.blog-toc.open .toggle-arrow i {
+    transform: rotate(-180deg);
+}
+.blog-toc.open .toc-content {
+    display: block;
+}
 
 /* ============================ Works Page ============================ */
 .works{
